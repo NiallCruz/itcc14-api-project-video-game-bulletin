@@ -15,7 +15,51 @@
 
 ---
 
-## 📝 Milestone 1: Design, Setup, and Initial Commitment (Nov Wks 1-4) 🏗️
+## 🎯 Project Overview & Initial Deliverables
+
+### 📝 Problem Statement
+> Game enthusiasts often struggle to keep track of new and upcoming video game releases because information is scattered across numerous websites, social media, and news outlets. This fragmentation makes it difficult to find accurate, consolidated, and timely information. The **Video Game Bulletin (VGB)** addresses this by creating a centralized, streamlined, and reliable hub for all video game and console release information.
+
+### 🌟 Project Goals
+The primary goal is to develop a user-friendly, web-based platform that serves as a centralized hub for upcoming and newly released video game and console announcements.
+
+The system aims to:
+* Deliver concise and timely game release information to users.
+* Provide a functional release calendar and real-time database updates for accuracy.
+* Allow users to filter games by genre and search for releases.
+* Support user interactive features like account creation, favoriting games, and commenting on releases.
+
+### 💾 Basic Data Models (Initial Design)
+The core data models are designed to support the centralized nature and interactive features of the VGB API.
+
+* **Game Model (Core Data):** Stores all release information.
+    * `game_id` (Primary Key)
+    * `title`
+    * `release_date`
+    * `platforms` (e.g., PC, PS5, Xbox)
+    * `specifications` (System Requirements)
+    * `genre`
+* **User Model (Interactive Features):** Stores user account data.
+    * `user_id` (Primary Key)
+    * `username`
+    * `email`
+    * `password_hash`
+    * `is_admin` (For Content Management/Admin Endpoints)
+* **Comment Model (Community):** Links users to games via comments.
+    * `comment_id` (Primary Key)
+    * `game_id` (Foreign Key to Game)
+    * `user_id` (Foreign Key to User)
+    * `content`
+    * `timestamp`
+* **Favorite Model (Association):** Links a User to multiple favorited Games.
+    * `favorite_id` (Primary Key)
+    * `user_id` (Foreign Key to User)
+    * `game_id` (Foreign Key to Game)
+
+---
+## 🗺️ Project Milestones
+
+### 📝 Milestone 1: Design, Setup, and Initial Commitment (Nov Wks 1-4) 🏗️
 
 ### What we'll do
 > This four-week phase focuses on finalizing all design documentation and establishing the core technical foundation. We will define the full **RESTful API** specification and connect the environment to **Firebase**, setting the clear roadmap for the entire project.
@@ -26,8 +70,9 @@
 3.  **Environment Setup:** Local development environment configured (Node.js/Next.js/Gatsby) and verified **Firebase Database** connection.
 
 ### Checklists
-* [ ] Finalize and write **Problem Statement** and **Project Goals** in `README.md`.
-* [ ] Define fields for all Data Models (Game, User, Comment, Favorite).
+* [X] Finalize and write **Problem Statement** and **Project Goals** in `README.md`.
+* [X] Define fields for all Data Models (Game, User, Comment, Favorite).
+* [X] Commit and push required initial information to `README.md`.
 * [ ] Complete comprehensive **`api.yaml`** with all endpoints and parameters.
 * [ ] Set up Node.js environment and install all framework dependencies.
 * [ ] Initialize **Firebase** and test connectivity with a simple read operation.
@@ -35,7 +80,7 @@
 
 ---
 
-## 💻 Milestone 2: Core API Functionality & Integration (Nov Wks 1-4) 🚀
+### 💻 Milestone 2: Core API Functionality & Integration (Nov Wks 1-4) 🚀
 
 ### What we'll do
 > We will implement the essential **Read** and **Admin Write** operations to manage game content. This involves building the public endpoints (`/releases`, `/games/{id}`) and the administrative **CRUD** for game data. We will also begin integrating the frontend to display this core data.
@@ -56,7 +101,7 @@
 
 ---
 
-## 🔒 Milestone 3: User Interaction & Security (Nov Wks 1-4) 💬
+### 🔒 Milestone 3: User Interaction & Security (Nov Wks 1-4) 💬
 
 ### What we'll do
 > This phase completes all user-facing interactive features, including **User Authentication**, **Favoriting**, and the **Commenting** system. The focus is on security, ensuring all endpoints are protected based on the user's role (Guest, Registered, Admin).
@@ -77,7 +122,7 @@
 
 ---
 
-## 4️⃣ Milestone 4: Testing & Refinement (Nov Wk 4 - Dec Wk 2) 🧪
+### 4️⃣ Milestone 4: Testing & Refinement (Nov Wk 4 - Dec Wk 2) 🧪
 
 ### What we'll do
 > The final development and QA push. We will implement essential features like **Search and Filtering** and conduct a comprehensive round of testing to polish the application, eliminate all critical bugs, and optimize performance before final deployment. This period allows ample time for quality assurance.
@@ -96,7 +141,7 @@
 
 ---
 
-## 5️⃣ Milestone 5: Final Deployment & Submission (Nov Wk 4 - Dec Wk 2) 📦
+### 5️⃣ Milestone 5: Final Deployment & Submission (Nov Wk 4 - Dec Wk 2) 📦
 
 ### What we'll do
 > The project concludes with **deployment to a live server** and the preparation of all materials necessary for the final project demonstration and presentation, covering the end of November and the first two weeks of December.
